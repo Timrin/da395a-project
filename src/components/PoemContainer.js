@@ -29,6 +29,7 @@ function PoemContainer() {
     if (isLoaded) {
         return (
             <div className="PoemContainer">
+                <button onClick={()=>{fetchPoem()}}>Another Poem</button>
                 <h2 className="title">{poem.title}</h2>
                 <h3 className="author">by <span>{poem.author.toUpperCase()}</span></h3>
                 {
