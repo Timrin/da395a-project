@@ -1,42 +1,49 @@
+import { useState, useEffect } from "react";
 
 function PoemContainer() {
 
-    let poem = {
-          "title": "Growth of Man -- like Growth of Nature --",
-          "author": "Emily Dickinson",
-          "lines": [
-            "Growth of Man -- like Growth of Nature --",
-            "Gravitates within --",
-            "Atmosphere, and Sun endorse it --",
-            "Bit it stir -- alone --",
-            "",
-            "Each -- its difficult Ideal",
-            "Must achieve -- Itself --",
-            "Through the solitary prowess",
-            "Of a Silent Life --",
-            "",
-            "Effort -- is the sole condition --",
-            "Patience of Itself --",
-            "Patience of opposing forces --",
-            "And intact Belief --",
-            "",
-            "Looking on -- is the Department",
-            "Of its Audience --",
-            "But Transaction -- is assisted",
-            "By no Countenance --"
-          ],
-          "linecount": "16"
-        };
+    const [poem, setPoem] = useState();
+    const [isLoaded, setIsLoaded] = useState(false);
 
-    return (
-        <div className="PoemContainer">
-            <h2 className="title">{poem.title}</h2>
-            <h3 className="author">by <span>{poem.author.toUpperCase()}</span></h3>
-            {
-                poem.lines.map((line, index) => <p key={index} className="line">{line}</p>)
-            }
-        </div>
-    );
+    const fetchPoem = () => {
+        fetch("https://poetrydb.org/random")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setIsLoaded(true);
+                    //Poems are returned in an array, even if it is just one.
+                    setPoem(result[0]);
+                }, (error) => {
+                    setIsLoaded(true);
+                    console.log(error)
+                }
+            )
+    }
+
+    //Note: This triggers twice when React.StrictMode is active
+    //This loads a poem when initially loading the site
+    useEffect(() => {
+        fetchPoem()
+    }, [])
+
+    if (isLoaded) {
+        return (
+            <div className="PoemContainer">
+                <h2 className="title">{poem.title}</h2>
+                <h3 className="author">by <span>{poem.author.toUpperCase()}</span></h3>
+                {
+                    poem.lines.map((line, index) => <p key={index} className="line">{line}</p>)
+                }
+            </div>
+        );
+    } else {
+        //Return placeholder if poem hasn't loaded yet.
+        return (
+            <div className="PoemContainer">
+                <h2>Loading</h2>
+            </div>
+        );
+    }
 }
 
 export default PoemContainer;
