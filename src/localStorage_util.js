@@ -9,3 +9,14 @@ export function getPoem(){
 function writePoemToLocalStorage(inPoem){
 
 }
+
+function readPoemsFromLocalStorage(){
+    let poems = localStorage.getItem("poems");
+
+    if(poems == null){
+        localStorage.setItem("poems", JSON.stringify([]))
+        return [];
+    }else{
+        return JSON.parse(poems);
+    }
+}
