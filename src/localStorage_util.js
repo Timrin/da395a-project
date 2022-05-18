@@ -1,6 +1,11 @@
-function getPoem(){
+export function getPoem(){
     fetch('https://poetrydb.org/random')
         .then(response => response.json())
-        .then(poem => {return poem})
+        .then(poem => {
+            writePoemToLocalStorage(poem);
+        })
 }
 
+function writePoemToLocalStorage(inPoem){
+
+}
