@@ -1,2 +1,9 @@
 .box{
+    max-width: 500px;
+    max-height: auto;
+    border-style: solid;
+}
+
+.box > hr{
+    margin: 10px;
 }
