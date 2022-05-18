@@ -30,11 +30,21 @@ function PoemContainer(props) {
     if (isLoaded) {
         return (
             <div className="PoemContainer">
-                <button onClick={()=>{fetchPoem()}}>Another Poem</button>
+                <button onClick={() => { fetchPoem() }}>Another Poem</button>
                 <h2 className="title">{poem.title}</h2>
                 <h3 className="author">by <span>{poem.author.toUpperCase()}</span></h3>
                 {
-                    poem.lines.map((line, index) => <p key={index} className="line">{line.split(" ").map((word)=><span onClick={e=> props.onWordClick(e.target.innerText)}>{word} </span>)}</p>)
+                    poem.lines.map((line, index) => {
+                        return <p key={index} className="line">
+                            {
+                                line.split(" ").map((word, index) => {
+                                    return <span key={index} onClick={e => props.onWordClick(e.target.innerText)}>
+                                        {word + " "} 
+                                    </span>
+                                })
+                            }
+                        </p>
+                    })
                 }
             </div>
         );

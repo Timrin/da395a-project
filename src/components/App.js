@@ -5,14 +5,14 @@ import PoemContainer from './PoemContainer';
 
 function App() {
 
-  const [word, setWord] = useState("");
+  const [word, setWord] = useState();
   const [modalActive, setModalActive] = useState(false);
 
   const onWordClick = (word) => {
-    console.log(word)
+    //TODO: strip punctuation from word
     word = word.trim();
     setWord(word);
-    console.log(word)
+    setModalActive(true);
   }
 
   return (

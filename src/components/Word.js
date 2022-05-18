@@ -1,43 +1,55 @@
 
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Modal, Button} from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 
 
 export default function Word(props) {
-  //Action for the modal
-  const [show, setShow] = useState(false);
-  const handleClose = () => props.setModalActive(false);
-  const handleShow = () => setShow(true);
-
   //Definiton of a word.
-  const [definition, setDefinition] = useState([]);
+  const [definition, setDefinition] = useState("");
+  //TODO: expand on the content that we display in the popup, e.g. multiple definitions and phonetics
 
   //Only for testing
-  const testWord = props.word;
+  const activeWord = props.word;
+
+  //Action for the modal
+  const handleClose = () => {
+    props.setModalActive(false);
+  };
 
   //Get information from the API about definiton of a specific word
   const fetchWord = () => {
-    fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + testWord)
-    .then(res => res.json())
-    .then(
-      (result) => {
-        if(result.ok){
+    fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + activeWord)
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else if (res.status === 404) {
+          setDefinition("Could not find a definition for " + activeWord)
+          return Promise.reject('error 404')
+        } else {
+          setDefinition("Something went wrong")
+          return Promise.reject('some other error: ' + res.status)
+        }
+      })
+      .then(
+        (result) => {
+          console.log(result)
+          console.log("Definition " + definition)
           setDefinition(result[0].meanings[0].definitions[0].definition)
           console.log(result[0].meanings[0].definitions[0].definition)
-        } else{
-          setDefinition("Tyvärr kunde vi inte hitta en beskrivning för det ordet")
-          console.log("Tyvärr kunde vi inte hitta en beskrivning för det ordet")
+        }, (error) => {
+          console.log(error)
         }
-      }, (error) => {
-        console.log(error)
-      }
-    )
+      )
   }
 
   useEffect(() => {
-    fetchWord()
-  }, [])
+    console.log("Fetch " + activeWord)
+    if (activeWord !== undefined) {
+      console.log("Fetching word")
+      fetchWord()
+    }
+  })
 
   return (
     <div>
