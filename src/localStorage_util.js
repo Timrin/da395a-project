@@ -1,12 +1,4 @@
-export function getPoem(){
-    fetch('https://poetrydb.org/random')
-        .then(response => response.json())
-        .then(poem => {
-            writePoemToLocalStorage(poem);
-        })
-}
-
-function writePoemToLocalStorage(inPoem){
+export function writePoemToLocalStorage(inPoem){
     const poems = readPoemsFromLocalStorage();
 
     poems.push({
@@ -20,7 +12,7 @@ function writePoemToLocalStorage(inPoem){
 
 }
 
-function readPoemsFromLocalStorage(){
+export function readPoemsFromLocalStorage(){
     let poems = localStorage.getItem("poems");
 
     if(poems == null){
