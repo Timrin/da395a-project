@@ -4,16 +4,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Modal, Button} from 'react-bootstrap';
 
 
-
 export default function Word() {
+  //Action for the modal
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  //Definiton of a word.
   const [definition, setDefinition] = useState([]);
 
+  //Only for testing
   const testWord = "Bottle";
 
+  //Get information from the API about definiton of a specific word
   const fetchWord = () => {
     fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + testWord)
     .then(res => res.json())
@@ -27,11 +30,9 @@ export default function Word() {
     )
   }
 
-
   useEffect(() => {
     fetchWord()
-}, [])
-
+  }, [])
 
   return (
     <div>
@@ -53,8 +54,6 @@ export default function Word() {
           </Button>
         </Modal.Footer>
       </Modal>
-
     </div>
   )
-
 }
