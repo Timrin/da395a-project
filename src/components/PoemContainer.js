@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import Word from "./Word.js";
 
-function PoemContainer() {
+function PoemContainer(props) {
 
     const [poem, setPoem] = useState();
     const [isLoaded, setIsLoaded] = useState(false);
@@ -33,7 +34,7 @@ function PoemContainer() {
                 <h2 className="title">{poem.title}</h2>
                 <h3 className="author">by <span>{poem.author.toUpperCase()}</span></h3>
                 {
-                    poem.lines.map((line, index) => <p key={index} className="line">{line}</p>)
+                    poem.lines.map((line, index) => <p key={index} className="line">{line.split(" ").map((word)=><span onClick={e=> props.onWordClick(e.target.innerText)}>{word} </span>)}</p>)
                 }
             </div>
         );
