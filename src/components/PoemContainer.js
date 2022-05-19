@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { OverlayTrigger, Button } from 'react-bootstrap';
 import Popover from 'react-bootstrap/Popover'
-import PopOverComponent from "./PopOverComponent.js";
 
 function PoemContainer(props) {
 
     const [poem, setPoem] = useState();
     const [currentWord, setCurrentWord] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [definition, setDefinition] = useState(false);
 
     const fetchPoem = () => {
         fetch("https://poetrydb.org/random")
@@ -24,10 +24,36 @@ function PoemContainer(props) {
             )
     }
 
-    const onWordClick = (word) => {
-        setCurrentWord(word);
-    }
+    const fetchWord = () => {
+        fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + currentWord)
+          .then(res => {
+            if (res.ok) {
+              return res.json()
+            } else if (res.status === 404) {
+              setDefinition("Could not find a definition for " + currentWord)
+              return Promise.reject('error 404')
+            } else {
+              setDefinition("Something went wrong")
+              return Promise.reject('some other error: ' + res.status)
+            }
+          })
+          .then(
+            (result) => {
+              console.log(result)
+              console.log("Definition " + definition)
+              setDefinition(result[0].meanings[0].definitions[0].definition)
+              console.log(result[0].meanings[0].definitions[0].definition)
+            }, (error) => {
+              console.log(error)
+            }
+          )
+      }
 
+    const onWordClick = (word) => {
+        const adjustWord = word.replaceAll(',', '').replaceAll('!', '').replaceAll(';', '').replaceAll(';', '').replaceAll('"', '').replaceAll('?', '').replaceAll('.', '')
+        setCurrentWord(adjustWord);
+        fetchWord();
+    }
 
     //Note: This triggers twice when React.StrictMode is active
     //This loads a poem when initially loading the site
@@ -46,24 +72,17 @@ function PoemContainer(props) {
                         return <p key={index} className="line">
                             {
                                 line.split(" ").map((word, index) => {
-                                    return <>
-                                        {currentWord === index ? 
-                                        <OverlayTrigger trigger="click" placement="right" overlay={
-                                            <Popover placement="right" show={currentWord === index} id="popover-basic">
-      <Popover.Header as="h3">Defnition of {props.word}</Popover.Header>
-      <Popover.Body>
-        test
-        <Button variant="primary">
-          Save Word
-        </Button>
-      </Popover.Body>
-    </Popover> }><span>{word} </span></OverlayTrigger>:  <span onClick={() => onWordClick(index)}>
-                                        {word + " "}
-                                    </span>}
-                    
-                                       
-        
-                                  </>
+                                    return <OverlayTrigger rootClose trigger="click" placement="right" overlay={
+                                            <Popover placement="right" id="popover-basic" show={false}>
+                                                <Popover.Header as="h3">Defnition of {currentWord}</Popover.Header>
+                                                <Popover.Body>
+                                                    Definitionen är
+                                                    <Button variant="primary">
+                                                        Save Word
+                                                    </Button>
+                                                </Popover.Body>
+                                            </Popover>}><span onClick={() => onWordClick(word)}>{word} </span>
+                                            </OverlayTrigger>
                                 })
                             }
                         </p>
