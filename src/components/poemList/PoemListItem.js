@@ -1,7 +1,10 @@
+import ListGroup from 'react-bootstrap/ListGroup'
+
 export default function PoemListItem() {
     return(
-        <li className="list-group-item">
-            <p>Item</p>
-        </li>
+        <ListGroup.Item>
+            
+            <hr />
+        </ListGroup.Item>
     )
 }
