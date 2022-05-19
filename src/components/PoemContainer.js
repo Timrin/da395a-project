@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
-import Word from "./Word.js";
+import { OverlayTrigger, Button } from 'react-bootstrap';
+import Popover from 'react-bootstrap/Popover'
+import PopOverComponent from "./PopOverComponent.js";
 
 function PoemContainer(props) {
 
     const [poem, setPoem] = useState();
+    const [currentWord, setCurrentWord] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
 
     const fetchPoem = () => {
@@ -20,6 +23,11 @@ function PoemContainer(props) {
                 }
             )
     }
+
+    const onWordClick = (word) => {
+        setCurrentWord(word);
+    }
+
 
     //Note: This triggers twice when React.StrictMode is active
     //This loads a poem when initially loading the site
@@ -38,9 +46,24 @@ function PoemContainer(props) {
                         return <p key={index} className="line">
                             {
                                 line.split(" ").map((word, index) => {
-                                    return <span key={index} onClick={e => props.onWordClick(e.target.innerText)}>
-                                        {word + " "} 
-                                    </span>
+                                    return <>
+                                        {currentWord === index ? 
+                                        <OverlayTrigger trigger="click" placement="right" overlay={
+                                            <Popover placement="right" show={currentWord === index} id="popover-basic">
+      <Popover.Header as="h3">Defnition of {props.word}</Popover.Header>
+      <Popover.Body>
+        test
+        <Button variant="primary">
+          Save Word
+        </Button>
+      </Popover.Body>
+    </Popover> }><span>{word} </span></OverlayTrigger>:  <span onClick={() => onWordClick(index)}>
+                                        {word + " "}
+                                    </span>}
+                    
+                                       
+        
+                                  </>
                                 })
                             }
                         </p>
@@ -59,3 +82,5 @@ function PoemContainer(props) {
 }
 
 export default PoemContainer;
+
+
