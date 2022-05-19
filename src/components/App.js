@@ -9,9 +9,9 @@ function App() {
   const [modalActive, setModalActive] = useState(false);
 
   const onWordClick = (word) => {
-    //TODO: strip punctuation from word
     word = word.trim();
-    setWord(word);
+    const adjustWord = word.replaceAll(',', '').replaceAll('!', '').replaceAll(';', '').replaceAll(';', '').replaceAll('"', '').replaceAll('?', '').replaceAll('.', '')
+    setWord(adjustWord);
     setModalActive(true);
   }
 
