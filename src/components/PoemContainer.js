@@ -24,13 +24,13 @@ function PoemContainer(props) {
             )
     }
 
-    const fetchWord = () => {
-        fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + currentWord)
+    const fetchWord = (word) => {
+        fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + word)
           .then(res => {
             if (res.ok) {
               return res.json()
             } else if (res.status === 404) {
-              setDefinition("Could not find a definition for " + currentWord)
+              setDefinition("Could not find a definition for " + word)
               return Promise.reject('error 404')
             } else {
               setDefinition("Something went wrong")
@@ -52,7 +52,7 @@ function PoemContainer(props) {
     const onWordClick = (word) => {
         const adjustWord = word.replaceAll(',', '').replaceAll('!', '').replaceAll(';', '').replaceAll(';', '').replaceAll('"', '').replaceAll('?', '').replaceAll('.', '')
         setCurrentWord(adjustWord);
-        fetchWord();
+        fetchWord(adjustWord);
     }
 
     //Note: This triggers twice when React.StrictMode is active
@@ -76,7 +76,7 @@ function PoemContainer(props) {
                                             <Popover placement="right" id="popover-basic" show={false}>
                                                 <Popover.Header as="h3">Defnition of {currentWord}</Popover.Header>
                                                 <Popover.Body>
-                                                    Definitionen är
+                                                    {definition}
                                                     <Button variant="primary">
                                                         Save Word
                                                     </Button>
