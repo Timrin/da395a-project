@@ -19,6 +19,7 @@ export function readPoemsFromLocalStorage(){
         localStorage.setItem("poems", JSON.stringify([]))
         return [];
     }else{
+        console.log("read function");
         return JSON.parse(poems);
     }
 }
