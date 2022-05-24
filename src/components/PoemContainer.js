@@ -9,6 +9,8 @@ function PoemContainer(props) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [definition, setDefinition] = useState(false);
 
+    var reload = false;
+
     const fetchPoem = () => {
         fetch("https://poetrydb.org/random")
             .then(res => res.json())
@@ -58,14 +60,14 @@ function PoemContainer(props) {
     //Note: This triggers twice when React.StrictMode is active
     //This loads a poem when initially loading the site
     useEffect(() => {
-        fetchPoem()
+            fetchPoem();
     }, [])
 
     if (isLoaded) {
         return (
             <div className="PoemContainer">
                 <button onClick={() => { fetchPoem() }}>Another Poem</button>
-                <button>Save Poem</button>
+                <button onClick={() => { props.savePoem(poem) }}>Save Poem</button>
                 <h2 className="title">{poem.title}</h2>
                 <h3 className="author">by <span>{poem.author.toUpperCase()}</span></h3>
                 {

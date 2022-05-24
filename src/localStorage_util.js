@@ -1,10 +1,12 @@
 export function writePoemToLocalStorage(inPoem){
     const poems = readPoemsFromLocalStorage();
 
+    console.log(inPoem);
+
     poems.push({
-        title:inPoem[0].title,
-        author:inPoem[0].author,
-        lines:inPoem[0].lines
+        title:inPoem.title,
+        author:inPoem.author,
+        lines:inPoem.lines
     });
 
     let jsonPoems = JSON.stringify(poems);
@@ -19,7 +21,7 @@ export function readPoemsFromLocalStorage(){
         localStorage.setItem("poems", JSON.stringify([]))
         return [];
     }else{
-        console.log("read function");
+
         return JSON.parse(poems);
     }
 }
