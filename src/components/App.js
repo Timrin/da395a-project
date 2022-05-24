@@ -19,8 +19,8 @@ function App() {
   return (
     <div className="App">
       <h1>Hello World</h1>
-      <List type="poem"/>
-      <List type="word"/>
+      <List type="poems"/>
+      <List type="words"/>
       <PoemContainer savePoem={savePoem}/>
     </div>
   );

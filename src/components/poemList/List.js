@@ -1,31 +1,34 @@
 import './poemList_style.css'
 import PoemListItem from './PoemListItem'
 import ListGroup from 'react-bootstrap/ListGroup'
-import { readPoemsFromLocalStorage } from '../../localStorage_util'
+import { readFromLocalStorage } from '../../localStorage_util'
 import { useState } from 'react'
 import React from 'react'
+import WordListItem from './WordListItem'
 
 
 export default function List(props){
 
     function getTitle(type){
-        if(type === 'poem'){
+        if(type === 'poems'){
             return 'Saved Poems'
         }
-        else if(type === 'word')
+        else if(type === 'words')
         {
             return 'Saved Words'
         }
     }
 
     function printList(){
-        if(props.type === 'poem'){
-            return readPoemsFromLocalStorage().map(
+        if(props.type === 'poems'){
+            return readFromLocalStorage(props.type).map(
                 poem => <PoemListItem item={poem} />
             )
         }
-        else if(props.type === 'word'){
-            //TODO read words from LocalStorage
+        else if(props.type === 'words'){
+            return readFromLocalStorage(props.type).map(
+                word => <WordListItem item={word} />
+            )
         }
     }
 

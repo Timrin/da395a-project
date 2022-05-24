@@ -1,5 +1,5 @@
 export function writePoemToLocalStorage(inPoem){
-    const poems = readPoemsFromLocalStorage();
+    const poems = readFromLocalStorage('poems');
 
     poems.push({
         title:inPoem.title,
@@ -12,14 +12,14 @@ export function writePoemToLocalStorage(inPoem){
 
 }
 
-export function readPoemsFromLocalStorage(){
-    let poems = localStorage.getItem("poems");
+export function readFromLocalStorage(type){
+    
+    let array = localStorage.getItem(type);
 
-    if(poems == null){
-        localStorage.setItem("poems", JSON.stringify([]))
+    if(array == null){
+        localStorage.setItem(type, JSON.stringify([]))
         return [];
     }else{
-
-        return JSON.parse(poems);
+        return JSON.parse(array);
     }
 }
