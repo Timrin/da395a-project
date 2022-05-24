@@ -12,6 +12,20 @@ export function writePoemToLocalStorage(inPoem){
 
 }
 
+export function writeWordToLocalStorage(inWord){
+    const words = readFromLocalStorage('words');
+
+    words.push({
+        word:inWord.word,
+        phonetic:inWord.phonetic,
+        meanings:inWord.meanings,
+        status:inWord.status
+    });
+
+    let jsonWords = JSON.stringify(words);
+    localStorage.setItem('words', jsonWords);
+}
+
 export function readFromLocalStorage(type){
     
     let array = localStorage.getItem(type);

@@ -119,9 +119,7 @@ function PoemContainer(props) {
                                                             </div>
                                                         )
                                                     })}
-                                                    <Button variant="primary">
-                                                        Save Word
-                                                    </Button>
+                                                    <Button variant="primary" onClick={() => {props.saveWord(definition)}}>Save Word</Button>
                                                 </Popover.Body>
                                             </Popover>}><span onClick={() => onWordClick(word)}>{word} </span>
                                         </OverlayTrigger>

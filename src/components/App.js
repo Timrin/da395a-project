@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './App.css';
 import List from './poemList/List.js';
 import PoemContainer from './PoemContainer';
-import { writePoemToLocalStorage } from "../localStorage_util";
+import { writePoemToLocalStorage, writeWordToLocalStorage } from "../localStorage_util";
 
 function App() {
 
@@ -15,13 +15,18 @@ function App() {
     setValue(poem);
     writePoemToLocalStorage(poem);
   }
+
+  function saveWord(word){
+    setValue(word);
+    writeWordToLocalStorage(word);
+  }
   
   return (
     <div className="App">
       <h1>Hello World</h1>
       <List type="poems"/>
       <List type="words"/>
-      <PoemContainer savePoem={savePoem}/>
+      <PoemContainer savePoem={savePoem} saveWord={saveWord}/>
     </div>
   );
 }
