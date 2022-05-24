@@ -1,3 +1,9 @@
 .App {
   text-align: center;
 }
+
+.popoverWrap {
+  background-color: #cecece;
+  width: 250px;
+  padding: 5px;
+}
