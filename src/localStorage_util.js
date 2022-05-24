@@ -1,8 +1,6 @@
 export function writePoemToLocalStorage(inPoem){
     const poems = readPoemsFromLocalStorage();
 
-    console.log(inPoem);
-
     poems.push({
         title:inPoem.title,
         author:inPoem.author,
