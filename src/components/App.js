@@ -20,6 +20,7 @@ function App() {
     <div className="App">
       <h1>Hello World</h1>
       <List type="poem"/>
+      <List type="word"/>
       <PoemContainer savePoem={savePoem}/>
     </div>
   );

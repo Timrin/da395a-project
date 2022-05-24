@@ -24,6 +24,9 @@ export default function List(props){
                 poem => <PoemListItem item={poem} />
             )
         }
+        else if(props.type === 'word'){
+            //TODO read words from LocalStorage
+        }
     }
 
     return(
