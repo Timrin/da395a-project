@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
 import { OverlayTrigger, Button } from 'react-bootstrap';
-import Popover from 'react-bootstrap/Popover'
+import Popover from 'react-bootstrap/Popover';
+import "./App.css";
 
 function PoemContainer(props) {
 
     const [poem, setPoem] = useState();
     const [currentWord, setCurrentWord] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [definition, setDefinition] = useState(false);
+    const [definition, setDefinition] = useState({
+        status: false,
+        word: "",
+        phonetic: "",
+        meanings: []
+    });
+    const MAX_NUMBER_OF_WORD_DEFINITIONS = 2;
 
     var reload = false;
 
@@ -28,28 +35,41 @@ function PoemContainer(props) {
 
     const fetchWord = (word) => {
         fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + word)
-          .then(res => {
-            if (res.ok) {
-              return res.json()
-            } else if (res.status === 404) {
-              setDefinition("Could not find a definition for " + word)
-              return Promise.reject('error 404')
-            } else {
-              setDefinition("Something went wrong")
-              return Promise.reject('some other error: ' + res.status)
-            }
-          })
-          .then(
-            (result) => {
-              console.log(result)
-              console.log("Definition " + definition)
-              setDefinition(result[0].meanings[0].definitions[0].definition)
-              console.log(result[0].meanings[0].definitions[0].definition)
-            }, (error) => {
-              console.log(error)
-            }
-          )
-      }
+            .then(res => {
+                if (res.ok) {
+                    return res.json()
+                } else if (res.status === 404) {
+                    setDefinition({status: false, message: ("Could not find a definition for " + word)})
+                    return Promise.reject('error 404')
+                } else {
+                    setDefinition({status: false, message: "Something went wrong. " + res.status})
+                    return Promise.reject('some other error: ' + res.status)
+                }
+            })
+            .then(
+                (result) => {
+                    console.log(result)
+                    console.log("Definition " + definition)
+
+                    console.log("-----------------------------------------");
+
+                    //Save dictionary data that we are interested in, in a dictionary entry
+                    let dictionaryEntry = {};
+                    dictionaryEntry.word = result[0].word;
+                    dictionaryEntry.phonetic = result[0].phonetic;
+                    dictionaryEntry.meanings = result[0].meanings;
+                    dictionaryEntry.status = true;
+
+                    console.log(dictionaryEntry)
+                    setDefinition(dictionaryEntry);
+
+                    console.log("-----------------------------------------");
+
+                }, (error) => {
+                    console.log(error)
+                }
+            )
+    }
 
     const onWordClick = (word) => {
         const adjustWord = word.replaceAll(',', '').replaceAll('!', '').replaceAll(';', '').replaceAll(';', '').replaceAll('"', '').replaceAll('?', '').replaceAll('.', '')
@@ -75,17 +95,51 @@ function PoemContainer(props) {
                         return <p key={index} className="line">
                             {
                                 line.split(" ").map((word, index) => {
-                                    return <OverlayTrigger rootClose trigger="click" placement="right" overlay={
-                                            <Popover placement="right" id="popover-basic" show={false}>
+                                    if (definition.status) {
+                                        //If everything is ok
+
+                                        return <OverlayTrigger rootClose trigger="click" placement="right" overlay={
+                                            <Popover className="popoverWrap" placement="right" id="popover-basic" show={false}>
                                                 <Popover.Header as="h3">Defnition of {currentWord}</Popover.Header>
                                                 <Popover.Body>
-                                                    {definition}
+                                                    {definition.phonetic}
+                                                    {definition.meanings.map(meaning => {
+                                                        let definitions = [];
+                                                        //Only loop for MAX_NUMBER_OF_WORD_DEFINITIONS or less 
+                                                        let loop = meaning.definitions.length > MAX_NUMBER_OF_WORD_DEFINITIONS ? MAX_NUMBER_OF_WORD_DEFINITIONS : meaning.definitions.length
+                                                        for (let i = 0; i < loop; i++) {
+                                                            definitions.push(meaning.definitions[i])
+                                                        }
+                                                        return (
+                                                            <div>
+                                                                <h6>{meaning.partOfSpeech}</h6>
+                                                                <ul>
+                                                                    {definitions.map((definition, index) => <li key={index}>{definition.definition}</li>)}
+                                                                </ul>
+                                                            </div>
+                                                        )
+                                                    })}
                                                     <Button variant="primary">
                                                         Save Word
                                                     </Button>
                                                 </Popover.Body>
                                             </Popover>}><span onClick={() => onWordClick(word)}>{word} </span>
-                                            </OverlayTrigger>
+                                        </OverlayTrigger>
+
+                                    } else {
+                                        //Something went wrong with the definition
+
+                                        return <OverlayTrigger rootClose trigger="click" placement="right" overlay={
+                                            <Popover className="popoverWrap" placement="right" id="popover-basic" show={false}>
+                                                <Popover.Header as="h3">Defnition of {currentWord}</Popover.Header>
+                                                <Popover.Body>
+                                                    {definition.message ?? "Loading"}
+                                                </Popover.Body>
+                                            </Popover>}><span onClick={() => onWordClick(word)}>{word} </span>
+                                        </OverlayTrigger>
+
+                                    }
+                                    
                                 })
                             }
                         </p>
