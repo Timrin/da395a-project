@@ -27,7 +27,7 @@ export default function List(props){
         }
         else if(props.type === 'words'){
             return readFromLocalStorage(props.type).map(
-                word => <WordListItem item={word} />
+                word => <WordListItem item={word} deleteWordById={props.deleteWord} />
             )
         }
     }

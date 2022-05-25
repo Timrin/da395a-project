@@ -25,12 +25,17 @@ function App() {
     setValue(id);
     deleteFromLocalStorage('poems', id);
   }
+
+  function deleteWord(id){
+    setValue(id);
+    deleteFromLocalStorage('words', id);
+  }
   
   return (
     <div className="App">
       <h1>Hello World</h1>
       <List type="poems" deletePoem={deletePoem}/>
-      <List type="words"/>
+      <List type="words" deleteWord={deleteWord}/>
       <PoemContainer savePoem={savePoem} saveWord={saveWord}/>
     </div>
   );

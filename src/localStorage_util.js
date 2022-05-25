@@ -18,7 +18,10 @@ export function writePoemToLocalStorage(inPoem){
 export function writeWordToLocalStorage(inWord){
     const words = readFromLocalStorage('words');
 
+    const newId = words.length > 0 ? words[words.length - 1].id +1 : 1;
+
     words.push({
+        id:newId,
         word:inWord.word,
         phonetic:inWord.phonetic,
         meanings:inWord.meanings,
@@ -46,5 +49,10 @@ export function deleteFromLocalStorage(type, inId){
         const poems = readFromLocalStorage('poems');
         var after = poems.filter((poem) => poem.id != inId);
         localStorage.setItem('poems', JSON.stringify(after));
+    }
+    else if(type === 'words'){
+        const words = readFromLocalStorage('words');
+        var after = words.filter((word) => word.id != inId);
+        localStorage.setItem('words', JSON.stringify(after));
     }
 }
