@@ -7,3 +7,13 @@
 hr{
     margin: 10px;
 }
+
+.delete{
+    background-color: lightgray;
+    float: right;
+    margin-right: 20px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    font-size: 20px;
+}

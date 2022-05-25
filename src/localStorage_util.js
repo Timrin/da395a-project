@@ -1,7 +1,10 @@
 export function writePoemToLocalStorage(inPoem){
     const poems = readFromLocalStorage('poems');
 
+    const newId = poems.length > 0 ? poems[poems.length - 1].id +1 : 1;
+
     poems.push({
+        id:newId,
         title:inPoem.title,
         author:inPoem.author,
         lines:inPoem.lines
@@ -35,5 +38,13 @@ export function readFromLocalStorage(type){
         return [];
     }else{
         return JSON.parse(array);
+    }
+}
+
+export function deleteFromLocalStorage(type, inId){
+    if(type === 'poems'){
+        const poems = readFromLocalStorage('poems');
+        var after = poems.filter((poem) => poem.id != inId);
+        localStorage.setItem('poems', JSON.stringify(after));
     }
 }
