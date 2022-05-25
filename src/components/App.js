@@ -17,8 +17,8 @@ function App() {
   }
 
   function saveWord(word){
-    setValue(word);
     writeWordToLocalStorage(word);
+    setValue(word);
   }
 
   function deletePoem(id){

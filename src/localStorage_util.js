@@ -22,18 +22,25 @@ export function writePoemToLocalStorage(inPoem){
 export function writeWordToLocalStorage(inWord){
     const words = readFromLocalStorage('words');
 
-    const newId = words.length > 0 ? words[words.length - 1].id +1 : 1;
+    if (!words.some(e => e.word === inWord.word)) {
+        const newId = words.length > 0 ? words[words.length - 1].id +1 : 1;
 
-    words.push({
-        id:newId,
-        word:inWord.word,
-        phonetic:inWord.phonetic,
-        meanings:inWord.meanings,
-        status:inWord.status
-    });
+        words.push({
+            id:newId,
+            word:inWord.word,
+            phonetic:inWord.phonetic,
+            meanings:inWord.meanings,
+            status:inWord.status
+        });
 
-    let jsonWords = JSON.stringify(words);
-    localStorage.setItem('words', jsonWords);
+        let jsonWords = JSON.stringify(words);
+        localStorage.setItem('words', jsonWords);
+    }
+    else{
+        alert("You already saved this word!")
+    }
+
+    
 }
 
 export function readFromLocalStorage(type){
