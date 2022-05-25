@@ -12,22 +12,22 @@ function App() {
 
   //Writes the poem to LOcalStorage and forces a re-render by updating the state
   function savePoem(poem){
-    setValue(poem);
+    setValue(value+1);
     writePoemToLocalStorage(poem);
   }
 
   function saveWord(word){
-    setValue(word);
+    setValue(value+1);
     writeWordToLocalStorage(word);
   }
 
   function deletePoem(id){
-    setValue(id);
+    setValue(value+1);
     deleteFromLocalStorage('poems', id);
   }
 
   function deleteWord(id){
-    setValue(id);
+    setValue(value+1);
     deleteFromLocalStorage('words', id);
   }
   
