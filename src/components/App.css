@@ -73,7 +73,6 @@ p {
     grid-template-rows: 100px auto auto auto auto;
     grid-template-areas:
       "menu"
-      "header"
       "poem"
       "bookmarks"
       "savedWords";

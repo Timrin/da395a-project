@@ -16,6 +16,8 @@ function PoemContainer(props) {
     });
     const MAX_NUMBER_OF_WORD_DEFINITIONS = 2;
 
+    var reload = false;
+
     const fetchPoem = () => {
         fetch("https://poetrydb.org/random")
             .then(res => res.json())
@@ -78,13 +80,14 @@ function PoemContainer(props) {
     //Note: This triggers twice when React.StrictMode is active
     //This loads a poem when initially loading the site
     useEffect(() => {
-        fetchPoem()
+            fetchPoem();
     }, [])
 
     if (isLoaded) {
         return (
             <div className="PoemContainer">
                 <button onClick={() => { fetchPoem() }}>Another Poem</button>
+                <button onClick={() => { props.savePoem(poem) }}>Save Poem</button>
                 <h2 className="title">{poem.title}</h2>
                 <h3 className="author">by <span>{poem.author.toUpperCase()}</span></h3>
                 {
@@ -116,9 +119,7 @@ function PoemContainer(props) {
                                                             </div>
                                                         )
                                                     })}
-                                                    <Button variant="primary">
-                                                        Save Word
-                                                    </Button>
+                                                    <Button variant="primary" onClick={() => {props.saveWord(definition)}}>Save Word</Button>
                                                 </Popover.Body>
                                             </Popover>}><span onClick={() => onWordClick(word)}>{word} </span>
                                         </OverlayTrigger>
