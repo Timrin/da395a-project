@@ -1,18 +1,22 @@
 export function writePoemToLocalStorage(inPoem){
     const poems = readFromLocalStorage('poems');
 
-    const newId = poems.length > 0 ? poems[poems.length - 1].id +1 : 1;
+    if (!poems.some(e => e.title === inPoem.title)) {
+        const newId = poems.length > 0 ? poems[poems.length - 1].id +1 : 1;
 
-    poems.push({
-        id:newId,
-        title:inPoem.title,
-        author:inPoem.author,
-        lines:inPoem.lines
-    });
+        poems.push({
+            id:newId,
+            title:inPoem.title,
+            author:inPoem.author,
+            lines:inPoem.lines
+        });
 
-    let jsonPoems = JSON.stringify(poems);
-    localStorage.setItem("poems", jsonPoems);
-
+        let jsonPoems = JSON.stringify(poems);
+        localStorage.setItem("poems", jsonPoems);
+    }
+    else{
+        alert("You already saved this poem!")
+    }
 }
 
 export function writeWordToLocalStorage(inWord){
