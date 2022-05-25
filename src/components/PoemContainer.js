@@ -70,7 +70,7 @@ function PoemContainer(props) {
     }
 
     const onWordClick = (word) => {
-        const adjustWord = word.replaceAll(',', '').replaceAll('!', '').replaceAll(';', '').replaceAll(';', '').replaceAll('"', '').replaceAll('?', '').replaceAll('.', '')
+        const adjustWord = word.replaceAll(',', '').replaceAll('!', '').replaceAll(';', '').replaceAll(':', '').replaceAll('"', '').replaceAll('?', '').replaceAll('.', '')
         setCurrentWord(adjustWord);
         fetchWord(adjustWord);
     }
@@ -97,7 +97,7 @@ function PoemContainer(props) {
 
                                         return <OverlayTrigger rootClose trigger="click" placement="right" overlay={
                                             <Popover className="popoverWrap" placement="right" id="popover-basic" show={false}>
-                                                <Popover.Header as="h3">Defnition of {currentWord}</Popover.Header>
+                                                <Popover.Header as="h4">Defnition of {currentWord}</Popover.Header>
                                                 <Popover.Body>
                                                     {definition.phonetic}
                                                     {definition.meanings.map(meaning => {
@@ -109,7 +109,7 @@ function PoemContainer(props) {
                                                         }
                                                         return (
                                                             <div>
-                                                                <h6>{meaning.partOfSpeech}</h6>
+                                                                <h5>{meaning.partOfSpeech}</h5>
                                                                 <ul>
                                                                     {definitions.map((definition, index) => <li key={index}>{definition.definition}</li>)}
                                                                 </ul>

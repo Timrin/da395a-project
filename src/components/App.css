@@ -1,9 +1,147 @@
+
+.mobile-show {
+  display: none;
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+  padding: 32px;
+}
+
+p {
+  font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
 .App {
   text-align: center;
 }
 
+.PoemContainer {
+  grid-area: poem;
+  padding: 20px;
+  justify-self: flex-start;
+
+  text-align: left;
+}
+
+#menuBar {
+  grid-area: menu;
+
+  background-color: #B8D9CC;
+}
+
+.header {
+  grid-area: header;
+  padding: 20px;
+
+  text-align: left;
+}
+
+/* Popover */
+
 .popoverWrap {
-  background-color: #cecece;
+  background-color: #E4D4B8;
   width: 250px;
-  padding: 5px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.popoverWrap ul {
+  padding-inline-start: 20px;
+}
+
+.popoverWrap li {
+  list-style-type: none;
+}
+
+.popoverWrap h4 {
+  margin-block-start: 0.5em;
+  margin-block-end: 0px;
+}
+
+.popoverWrap h5 {
+  margin-block-end: 0px;
+}
+
+/* Mobile */
+@media screen and (max-width: 900px) {
+
+  .App {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px auto auto auto auto;
+    grid-template-areas:
+      "menu"
+      "header"
+      "poem"
+      "bookmarks"
+      "savedWords";
+  }
+
+  #menuBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #menuBar .logo {
+    position: relative;
+  }
+
+  #menuBar h1 {
+    margin-right: auto;
+  } 
+
+  .mobile-show {
+    display: block;
+  }
+
+  .header {
+    display: none;
+  }
+
+}
+
+/* Tablet */
+@media screen and (min-width: 901px) {
+
+  .App {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 100px auto auto auto;
+    grid-template-areas:
+      "menu header"
+      "menu poem"
+      "menu bookmarks"
+      "menu savedWords";
+  }
+
+  #menuBar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+}
+
+/* Desktop */
+@media screen and (min-width: 1300px) {
+
+  .App {
+    display: grid;
+    grid-template-columns: 200px 4.5fr 3fr 3.5fr;
+    grid-template-rows: 100px 1fr 1fr;
+    grid-template-areas:
+      "menu header header header"
+      "menu poem dictionary bookmarks"
+      "menu poem dictionary savedWords";
+  }
+
+  #menuBar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
 }
