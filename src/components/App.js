@@ -37,11 +37,13 @@ function App() {
         <img className="logo" src="quill.png"></img>
         <h1 className="mobile-show">Dicta</h1>
       </div>
-      <div className="header">
+      <div id="header">
         <h1>Dicta</h1>
       </div>
-      <List type="poems" deletePoem={deletePoem} />
-      <List type="words" deleteWord={deleteWord} />
+      <div id="savedLists">
+        <List type="poems" deletePoem={deletePoem} />
+        <List type="words" deleteWord={deleteWord} />
+      </div>
       <PoemContainer savePoem={savePoem} saveWord={saveWord} />
     </div>
   );

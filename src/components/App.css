@@ -31,11 +31,15 @@ p {
   background-color: #B8D9CC;
 }
 
-.header {
+#header {
   grid-area: header;
   padding: 20px;
 
   text-align: left;
+}
+
+#savedLists {
+  grid-area: saved;
 }
 
 /* Popover */
@@ -74,29 +78,19 @@ p {
     grid-template-areas:
       "menu"
       "poem"
-      "bookmarks"
-      "savedWords";
+      "saved";
   }
 
   #menuBar {
     display: flex;
     align-items: center;
-    justify-content: center;
   }
-
-  #menuBar .logo {
-    position: relative;
-  }
-
-  #menuBar h1 {
-    margin-right: auto;
-  } 
 
   .mobile-show {
     display: block;
   }
 
-  .header {
+  #header {
     display: none;
   }
 
@@ -112,8 +106,7 @@ p {
     grid-template-areas:
       "menu header"
       "menu poem"
-      "menu bookmarks"
-      "menu savedWords";
+      "menu saved";
   }
 
   #menuBar {
@@ -130,11 +123,11 @@ p {
   .App {
     display: grid;
     grid-template-columns: 200px 4.5fr 3fr 3.5fr;
-    grid-template-rows: 100px 1fr 1fr;
+    grid-template-rows: 100px 1fr auto;
     grid-template-areas:
       "menu header header header"
-      "menu poem dictionary bookmarks"
-      "menu poem dictionary savedWords";
+      "menu poem dictionary saved"
+      "menu poem dictionary overflow";
   }
 
   #menuBar {
