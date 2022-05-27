@@ -5,55 +5,42 @@ import { getNewPoem, getWord } from "./api_util";
 import "./App.css";
 
 function PoemContainer(props) {
-
-    const [poem, setPoem] = useState();
-    const [currentWord, setCurrentWord] = useState(false);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [definition, setDefinition] = useState({
-        status: false,
-        word: "",
-        phonetic: "",
-        meanings: []
-    });
     const MAX_NUMBER_OF_WORD_DEFINITIONS = 2;
 
     const onWordClick = (word) => {
         const adjustWord = word.replaceAll(',', '').replaceAll('!', '').replaceAll(';', '').replaceAll(':', '').replaceAll('"', '').replaceAll('?', '').replaceAll('.', '')
-        setCurrentWord(adjustWord);
-        getWord(adjustWord, setDefinition);
+        props.setCurrentWord(adjustWord);
+        getWord(adjustWord, props.setDefinition);
     }
 
     //Note: This triggers twice when React.StrictMode is active
     //This loads a poem when initially loading the site
     useEffect(() => {
-            getNewPoem(setPoem, setIsLoaded);
+            getNewPoem(props.setPoem, props.setIsLoaded);
     }, [])
 
-    function getPopover(){
-    
-    }
 
-    if (isLoaded) {
+    if (props.isLoaded) {
         return (
             <div className="PoemContainer">
-                <button onClick={() => { getNewPoem(setPoem, setIsLoaded) }}>Another Poem</button>
-                <button onClick={() => { props.savePoem(poem) }}>Save Poem</button>
-                <h2 className="title">{poem.title}</h2>
-                <h3 className="author">by <span>{poem.author.toUpperCase()}</span></h3>
+                <button onClick={() => { getNewPoem(props.setPoem, props.setIsLoaded) }}>Another Poem</button>
+                <button onClick={() => { props.savePoem(props.poem) }}>Save Poem</button>
+                <h2 className="title">{props.poem.title}</h2>
+                <h3 className="author">by <span>{props.poem.author.toUpperCase()}</span></h3>
                 {
-                    poem.lines.map((line, index) => {
+                    props.poem.lines.map((line, index) => {
                         return <p key={index} className="line">
                             {
                                 line.split(" ").map((word, index) => {
-                                    if (definition.status) {
+                                    if (props.definition.status) {
                                         //If everything is ok
 
                                         return <OverlayTrigger rootClose trigger="click" placement="right" overlay={
                                             <Popover className="popoverWrap" placement="right" id="popover-basic" show={false}>
-                                                <Popover.Header as="h4">Defnition of {currentWord}</Popover.Header>
+                                                <Popover.Header as="h4">Defnition of {props.currentWord}</Popover.Header>
                                                 <Popover.Body>
-                                                    {definition.phonetic}
-                                                    {definition.meanings.map(meaning => {
+                                                    {props.definition.phonetic}
+                                                    {props.definition.meanings.map(meaning => {
                                                         let definitions = [];
                                                         //Only loop for MAX_NUMBER_OF_WORD_DEFINITIONS or less 
                                                         let loop = meaning.definitions.length > MAX_NUMBER_OF_WORD_DEFINITIONS ? MAX_NUMBER_OF_WORD_DEFINITIONS : meaning.definitions.length
@@ -69,7 +56,7 @@ function PoemContainer(props) {
                                                             </div>
                                                         )
                                                     })}
-                                                    <Button variant="primary" onClick={() => {props.saveWord(definition)}}>Save Word</Button>
+                                                    <Button variant="primary" onClick={() => {props.saveWord(props.definition)}}>Save Word</Button>
                                                 </Popover.Body>
                                             </Popover>}><span onClick={() => onWordClick(word)}>{word} </span>
                                         </OverlayTrigger>
@@ -79,13 +66,12 @@ function PoemContainer(props) {
 
                                         return <OverlayTrigger rootClose trigger="click" placement="right" overlay={
                                             <Popover className="popoverWrap" placement="right" id="popover-basic" show={false}>
-                                                <Popover.Header as="h3">Defnition of {currentWord}</Popover.Header>
+                                                <Popover.Header as="h3">Defnition of {props.currentWord}</Popover.Header>
                                                 <Popover.Body>
-                                                    {definition.message ?? "Loading"}
+                                                    {props.definition.message ?? "Loading"}
                                                 </Popover.Body>
                                             </Popover>}><span onClick={() => onWordClick(word)}>{word} </span>
                                         </OverlayTrigger>
-
                                     }
                                     
                                 })

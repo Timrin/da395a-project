@@ -9,6 +9,16 @@ function App() {
   //Uses state to force re-render when a new poem is added. Updates the list of saved poems from 
   //LoacalStorage without having to reload the page
   const [value, setValue] = useState();
+  //States from PoemContainer
+  const [poem, setPoem] = useState();
+  const [currentWord, setCurrentWord] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [definition, setDefinition] = useState({
+    status: false,
+    word: "",
+    phonetic: "",
+    meanings: []
+});
 
   //Writes the poem to LOcalStorage and forces a re-render by updating the state
   function savePoem(poem) {
@@ -44,7 +54,9 @@ function App() {
         <List type="poems" deletePoem={deletePoem} />
         <List type="words" deleteWord={deleteWord} />
       </div>
-      <PoemContainer savePoem={savePoem} saveWord={saveWord} />
+      <PoemContainer savePoem={savePoem} saveWord={saveWord} poem={poem} setPoem={setPoem}
+        currentWord={currentWord} setCurrentWord={setCurrentWord} isLoaded={isLoaded}
+        setIsLoaded={setIsLoaded} definition={definition} setDefinition={setDefinition}/>
     </div>
   );
 }
