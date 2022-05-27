@@ -51,7 +51,7 @@ function App() {
         <h1>Dicta</h1>
       </div>
       <div id="savedLists">
-        <List type="poems" deletePoem={deletePoem} />
+        <List type="poems" deletePoem={deletePoem} setPoem={setPoem} setIsLoaded={setIsLoaded} />
         <List type="words" deleteWord={deleteWord} />
       </div>
       <PoemContainer savePoem={savePoem} saveWord={saveWord} poem={poem} setPoem={setPoem}

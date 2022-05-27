@@ -19,7 +19,7 @@ export default function List(props){
     function printList(){
         if(props.type === 'poems'){
             return readFromLocalStorage(props.type).map(
-                poem => <PoemListItem item={poem} deletePoemById={props.deletePoem}/>
+                poem => <PoemListItem item={poem} deletePoemById={props.deletePoem} setPoemClick={props.setPoem} setPoemLoaded={props.setIsLoaded} />
             )
         }
         else if(props.type === 'words'){
