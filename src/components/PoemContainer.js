@@ -23,8 +23,8 @@ function PoemContainer(props) {
     if (props.isLoaded) {
         return (
             <div className="PoemContainer">
-                <button onClick={() => { getNewPoem(props.setPoem, props.setIsLoaded) }}>Another Poem</button>
-                <button onClick={() => { props.savePoem(props.poem) }}>Save Poem</button>
+                <button class="btn" onClick={() => { getNewPoem(props.setPoem, props.setIsLoaded) }}>New Poem</button>
+                <button class="btn" onClick={() => { props.savePoem(props.poem) }}><span class="material-icons">turned_in</span></button>
                 <h2 className="title">{props.poem.title}</h2>
                 <h3 className="author">by <span>{props.poem.author.toUpperCase()}</span></h3>
                 {
@@ -56,7 +56,7 @@ function PoemContainer(props) {
                                                             </div>
                                                         )
                                                     })}
-                                                    <Button variant="primary" onClick={() => {props.saveWord(props.definition)}}>Save Word</Button>
+                                                    <Button class="btn" variant="primary" onClick={() => {props.saveWord(props.definition)}}>Save Word</Button>
                                                 </Popover.Body>
                                             </Popover>}><span onClick={() => onWordClick(word)}>{word} </span>
                                         </OverlayTrigger>

@@ -68,6 +68,24 @@ p {
   margin-block-end: 0px;
 }
 
+/* Buttons */
+
+.btn{
+  background-color: rgba(49, 89, 73, 1);
+  color: white;
+  border-radius: 6px;
+  width: 119px;
+  height: 42px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  border: none;
+  /*  font-family: Georgia; */
+  margin: 10px;
+}
+
+
 /* Mobile */
 @media screen and (max-width: 900px) {
 
