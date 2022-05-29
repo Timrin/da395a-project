@@ -4,6 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import { readFromLocalStorage } from '../../localStorage_util'
 import React from 'react'
 import WordListItem from './WordListItem'
+import poemLogo from './Poem-logo.png'
 
 export default function List(props){
     function getTitle(type){
@@ -31,12 +32,16 @@ export default function List(props){
 
     return(
         <div className='box' >
-            <h3>{getTitle(props.type)}</h3>
-            <hr />
-
-            <ListGroup>
-                {printList()}
-            </ListGroup>
+            <div className='box-header-container'>
+                <h3 className='box-header'>{getTitle(props.type)}</h3>
+                <div className='poem-logo-container'><img className='poem-logo' src={poemLogo} /></div>
+            </div>
+            <div className='scroll'>
+                <ListGroup>
+                    {printList()}
+                </ListGroup>
+            </div>
+            
         </div>
     )
 };
