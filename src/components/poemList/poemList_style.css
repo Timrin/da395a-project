@@ -63,12 +63,14 @@
     grid-area: title;
     text-align: start;
     margin-left: 2%;
+    cursor: pointer;
 }
 
 .author{
     grid-area: author;
     text-align: start;
     margin-left: 2%;
+    cursor: pointer;
 }
 
 .poem-delete{
@@ -94,12 +96,14 @@
     text-align: left;
     margin-left: 7px;
     width: auto;
+    cursor: pointer;
 }
 
 .phonetic{
     grid-area: phonetic;
     text-align: left;
     margin-left: 7px;
+    cursor: pointer;
 }
 
 .word-delete-container{
