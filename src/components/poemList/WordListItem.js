@@ -1,6 +1,7 @@
 import ListGroup from 'react-bootstrap/ListGroup'
 import { OverlayTrigger } from 'react-bootstrap';
 import Popover from 'react-bootstrap/Popover';
+import logo from './Delete-X.png'
 
 export default function WordListItem(props) {
 
@@ -30,14 +31,19 @@ export default function WordListItem(props) {
                     })}
                 </Popover.Body>
             </Popover>}>
-        <ListGroup.Item>
-            
-                <p>{props.item.word} | {props.item.phonetic} <span className='delete' onClick={() => {
-                    props.deleteWordById(props.item.id);
-                }}>X</span></p>
-                <hr />
-            
-        </ListGroup.Item>
+            <ListGroup.Item className='word-box-item'>
+                <p className='word'><strong>{props.item.word}</strong></p> 
+                <p className='phonetic'> [{props.item.phonetic}] </p>
+                
+                <div className='word-delete-container'>
+                    <span className='word-delete' onClick={() => {
+                            props.deleteWordById(props.item.id);
+                        }}>
+                            <img src={logo} />
+                    </span>
+                </div>
+
+            </ListGroup.Item>
         </OverlayTrigger>
     )
 }

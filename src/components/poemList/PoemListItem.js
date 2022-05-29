@@ -8,10 +8,10 @@ export default function PoemListItem(props) {
             props.setPoemClick(props.item);
             props.setPoemLoaded(true);
         }}>
-            <ListGroup.Item className='box-item'>
+            <ListGroup.Item className='poem-box-item'>
                 <p className='title'><strong>{props.item.title}</strong></p>
                 <p className='author'>by <strong>{props.item.author}</strong></p>
-                <div className='delete'>
+                <div className='poem-delete'>
                     <span onClick={() => {
                         props.deletePoemById(props.item.id);
                     }}>
