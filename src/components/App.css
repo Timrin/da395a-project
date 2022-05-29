@@ -38,7 +38,7 @@ p {
   text-align: left;
 }
 
-#savedLists {
+.savedLists {
   grid-area: saved;
 }
 
@@ -102,10 +102,29 @@ p {
   #menuBar {
     display: flex;
     align-items: center;
+    position: sticky;
+    top: 0px;
+    padding: 10px 0px;
   }
 
   .mobile-show {
     display: block;
+    color: rgba(49, 89, 73, 1);
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    width: 100px;
+    height: 50px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    border: none;
+    /*  font-family: Georgia; */
+    margin: 10px;
+
+
+    
   }
 
   #header {

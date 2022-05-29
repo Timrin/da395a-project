@@ -8,9 +8,9 @@ export default function PoemListItem(props) {
             props.setPoemLoaded(true);
         }}>
             <ListGroup.Item>
-                <p>{props.item.title} | {props.item.author} <span className='delete' onClick={() => {
+                <a href="#top"><p>{props.item.title} | {props.item.author} <span className='delete' onClick={() => {
                     props.deletePoemById(props.item.id);
-                }}>X</span></p>
+                }}>X</span></p></a>
                 <hr />    
             </ListGroup.Item>
         </span>

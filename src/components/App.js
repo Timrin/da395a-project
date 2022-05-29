@@ -44,14 +44,23 @@ function App() {
   return (
     <div className="App">
       <div id="menuBar">
-        <img className="logo" src="quill.png"></img>
-        <h1 className="mobile-show">Dicta</h1>
+        <a href="#top"><img className="logo" src="quill.png"></img></a>
+        <a className="mobile-show" href="#poemList">Saved Poems</a>
+        <a className="mobile-show" href="#wordList">Saved Words</a>
       </div>
       <div id="header">
         <h1>Dicta</h1>
       </div>
-      <div id="savedLists">
+      <div id="poemList">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
         <List type="poems" deletePoem={deletePoem} setPoem={setPoem} setIsLoaded={setIsLoaded} />
+      </div>
+      <div id="wordList">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
         <List type="words" deleteWord={deleteWord} />
       </div>
       <PoemContainer savePoem={savePoem} saveWord={saveWord} poem={poem} setPoem={setPoem}
