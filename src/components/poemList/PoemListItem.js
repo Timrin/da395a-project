@@ -4,13 +4,15 @@ import logo from './Delete-X.png'
 
 export default function PoemListItem(props) {
     return(
-        <span onClick={() => {
-            props.setPoemClick(props.item);
-            props.setPoemLoaded(true);
-        }}>
             <ListGroup.Item className='poem-box-item'>
-                <p className='title'><strong>{props.item.title}</strong></p>
-                <p className='author'>by <strong>{props.item.author}</strong></p>
+                <span onClick={() => {
+                    props.setPoemClick(props.item);
+                    props.setPoemLoaded(true);
+                }}>
+                    <p className='title'><strong>{props.item.title}</strong></p>
+                    <p className='author'>by <strong>{props.item.author}</strong></p>
+                </span>
+            
                 <div className='poem-delete'>
                     <span onClick={() => {
                         props.deletePoemById(props.item.id);
@@ -19,6 +21,5 @@ export default function PoemListItem(props) {
                     </span>
                 </div>   
             </ListGroup.Item>
-        </span>
     )
 }
