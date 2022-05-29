@@ -11,14 +11,7 @@ function App() {
   const [value, setValue] = useState();
   //States from PoemContainer
   const [poem, setPoem] = useState();
-  const [currentWord, setCurrentWord] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [definition, setDefinition] = useState({
-    status: false,
-    word: "",
-    phonetic: "",
-    meanings: []
-});
 
   //Writes the poem to LOcalStorage and forces a re-render by updating the state
   function savePoem(poem) {
@@ -55,8 +48,7 @@ function App() {
         <List type="words" deleteWord={deleteWord} />
       </div>
       <PoemContainer savePoem={savePoem} saveWord={saveWord} poem={poem} setPoem={setPoem}
-        currentWord={currentWord} setCurrentWord={setCurrentWord} isLoaded={isLoaded}
-        setIsLoaded={setIsLoaded} definition={definition} setDefinition={setDefinition}/>
+       isLoaded={isLoaded} setIsLoaded={setIsLoaded}/>
     </div>
   );
 }
