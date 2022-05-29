@@ -1,19 +1,90 @@
 .box{
-    max-width: 500px;
-    max-height: auto;
-    border-style: solid;
+    max-width: 400px;
+    max-height: 400px;
+    background-color: rgb(242, 242, 242);
+    border-radius: 9px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-hr{
-    margin: 10px;
+.scroll{
+    overflow-y: auto;
+    -ms-overflow-style: none; /*IE and Edge*/
+    scrollbar-width: none; /*Firefox*/
+}
+
+/*For Chrome, Safari and Opera*/
+.scroll::-webkit-scrollbar{
+    display: none;
+
+}
+
+.box-header-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.box-header{
+    text-align: start;
+    margin-left: 7px;
+    width: 50%;
+}
+
+.poem-logo-container{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 17px;
+}
+
+.poem-logo{
+    width: 18px;
+    height: 25px;
+}
+
+.box-item{
+    background-color: white;
+    border-radius: 5px;
+    margin: 7px;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-auto-rows: min-content;
+    grid-template-areas: 
+        "title delete"
+        "author ."
+    ;
+}
+
+.title{
+    grid-area: title;
+    text-align: start;
+    margin-left: 2%;
+}
+
+.author{
+    grid-area: author;
+    text-align: start;
+    margin-left: 2%;
 }
 
 .delete{
-    background-color: lightgray;
-    float: right;
-    margin-right: 20px;
-    height: 30px;
-    width: 30px;
+    background-color: rgb(112, 112, 112);   
+    height: 22px;
+    width: 22px;
+    border-radius: 6px;
+    margin-top: 20%;
+    justify-self: center;
+    align-self: baseline;
     cursor: pointer;
-    font-size: 20px;
+}
+
+.delete > img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25%;
+    width: 10px;
+    height: 10px;
 }
