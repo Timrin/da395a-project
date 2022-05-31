@@ -59,6 +59,11 @@
     ;
 }
 
+.poem-box-item > a{
+    text-decoration: none;
+    color: black;
+}
+
 .poem-title{
     grid-area: title;
     text-align: start;
