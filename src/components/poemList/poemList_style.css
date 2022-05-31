@@ -59,14 +59,14 @@
     ;
 }
 
-.title{
+.poem-title{
     grid-area: title;
     text-align: start;
     margin-left: 2%;
     cursor: pointer;
 }
 
-.author{
+.poem-author{
     grid-area: author;
     text-align: start;
     margin-left: 2%;

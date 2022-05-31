@@ -10,8 +10,8 @@ export default function PoemListItem(props) {
                     props.setPoemClick(props.item);
                     props.setPoemLoaded(true);
                 }}>
-                    <p className='title'><strong>{props.item.title}</strong></p>
-                    <p className='author'>by <strong>{props.item.author}</strong></p>
+                    <p className='poem-title'><strong>{props.item.title}</strong></p>
+                    <p className='poem-author'>by <strong>{props.item.author}</strong></p>
                 </span>
                 </a>
                 <div className='poem-delete'>
