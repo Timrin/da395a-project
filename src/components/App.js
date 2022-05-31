@@ -3,6 +3,9 @@ import './App.css';
 import List from './poemList/List.js';
 import PoemContainer from './PoemContainer';
 import { writePoemToLocalStorage, writeWordToLocalStorage, deleteFromLocalStorage } from "../localStorage_util";
+import Dropdown from 'react-bootstrap/Dropdown';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
@@ -37,9 +40,21 @@ function App() {
   return (
     <div className="App">
       <div id="menuBar">
-        <a href="#top"><img className="logo" src="quill.png"></img></a>
-        <a className="mobile-show" href="#poemList">Saved Poems</a>
-        <a className="mobile-show" href="#wordList">Saved Words</a>
+        
+        <div className="mobile-show">
+        <a id="title" href="#top"><h1>Dicta</h1></a>
+          <Dropdown>
+            <Dropdown.Toggle id="dropdown-list">
+                Saved
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="#poemList">Saved Poems</Dropdown.Item>
+              <Dropdown.Item href="#wordList">Saved Words</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+      
       </div>
       <div id="header">
         <h1>Dicta</h1>
