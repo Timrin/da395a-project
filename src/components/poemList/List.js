@@ -5,8 +5,13 @@ import { readFromLocalStorage } from '../../localStorage_util'
 import React from 'react'
 import WordListItem from './WordListItem'
 import poemLogo from './Poem-logo.png'
+import wordLogo from './word-star.png'
 
 export default function List(props){
+
+    let logo;
+    let logoClassName = "";
+
     function getTitle(type){
         if(type === 'poems'){
             return 'Saved Poems'
@@ -30,11 +35,20 @@ export default function List(props){
         }
     }
 
+    if(props.type === 'poems'){
+        logo = poemLogo;
+        logoClassName = 'poem-logo'
+    }
+    else if(props.type === 'words'){
+        logo = wordLogo;
+        logoClassName = 'word-logo';
+    }
+
     return(
         <div className='box' >
             <div className='box-header-container'>
                 <h3 className='box-header'>{getTitle(props.type)}</h3>
-                <div className='poem-logo-container'><img className='poem-logo' src={poemLogo} /></div>
+                <div className='poem-logo-container'><img className={logoClassName} src={logo} /></div>
             </div>
             <div className='scroll'>
                 <ListGroup>

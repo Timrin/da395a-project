@@ -96,6 +96,11 @@
     display: flex;
 }
 
+.word-logo{
+    width: 28px;
+    height: 28px;
+}
+
 .word-header-container{
     display: flex;
     flex-direction: row;
