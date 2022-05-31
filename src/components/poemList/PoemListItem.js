@@ -5,6 +5,7 @@ import logo from './Delete-X.png'
 export default function PoemListItem(props) {
     return(
             <ListGroup.Item className='poem-box-item'>
+                <a href="#top">
                 <span onClick={() => {
                     props.setPoemClick(props.item);
                     props.setPoemLoaded(true);
@@ -12,7 +13,7 @@ export default function PoemListItem(props) {
                     <p className='title'><strong>{props.item.title}</strong></p>
                     <p className='author'>by <strong>{props.item.author}</strong></p>
                 </span>
-            
+                </a>
                 <div className='poem-delete'>
                     <span onClick={() => {
                         props.deletePoemById(props.item.id);

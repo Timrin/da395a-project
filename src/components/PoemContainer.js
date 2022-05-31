@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { OverlayTrigger, Button } from 'react-bootstrap';
-import Popover from 'react-bootstrap/Popover';
 import { getNewPoem, getWord } from "./api_util";
 import Word from "./Word"
 import "./App.css";
@@ -17,8 +16,8 @@ function PoemContainer(props) {
     if (props.isLoaded) {
         return (
             <div className="PoemContainer">
-                <button class="btn" onClick={() => { getNewPoem(props.setPoem, props.setIsLoaded) }}>New Poem</button>
-                <button class="btn" onClick={() => { props.savePoem(props.poem) }}><span class="material-icons">turned_in</span></button>
+                <Button className="btn" onClick={() => { getNewPoem(props.setPoem, props.setIsLoaded) }}>New Poem</Button>
+                <Button className="btn" onClick={() => { props.savePoem(props.poem) }}><span class="material-icons">turned_in</span></Button>
                 <h2 className="title">{props.poem.title}</h2>
                 <h3 className="author">by <span>{props.poem.author.toUpperCase()}</span></h3>
                 {
