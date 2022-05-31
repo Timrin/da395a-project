@@ -41,6 +41,8 @@ function App() {
     <div className="App">
       <div id="menuBar">
         
+        <img className="logo" src={'quill.png'} />
+
         <div className="mobile-show">
         <a id="title" href="#top"><h1>Dicta</h1></a>
           <Dropdown>

@@ -4,8 +4,8 @@
 }
 
 .logo {
-  width: 72px;
-  height: 72px;
+  width: 200px;
+  height: 200px;
   padding: 32px;
 }
 
@@ -21,6 +21,7 @@ p {
   grid-area: poem;
   padding: 20px;
   justify-self: flex-start;
+
   text-align: left;
 }
 
@@ -37,7 +38,7 @@ p {
   text-align: left;
 }
 
-.savedLists {
+#savedLists {
   grid-area: saved;
 }
 
@@ -70,23 +71,18 @@ p {
 /* Buttons */
 
 .btn{
-  background-color: rgba(49, 89, 73, 1) !important;
-  color: white !important;
-  border-radius: 6px !important;
-  width: 119px !important;
-  height: 42px !important;
-  font-style: normal !important;
-  font-weight: 700 !important;
-  font-size: 16px !important;
-  line-height: 21px !important;
-  border: none !important;
+  background-color: rgba(49, 89, 73, 1);
+  color: white;
+  border-radius: 6px;
+  width: 119px;
+  height: 42px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  border: none;
   /*  font-family: Georgia; */
-  margin: 10px !important;
-}
-
-.btn:focus{
-  outline: none !important;
-  border: none !important;
+  margin: 10px;
 }
 
 
@@ -104,52 +100,17 @@ p {
   }
 
   #menuBar {
-    display: box;
-    position: sticky;
-    top: 0px;
-    padding: 10px 0px;
-    text-align: center;
-    justify-content: center;
-    justify-items: center;
-    vertical-align: middle;
+    display: flex;
     align-items: center;
-    position: relative;
   }
 
-  #dropdown-list{
-    background-color: white !important;
-    color:rgba(49, 89, 73, 1) !important;
-    border: none !important;
-    outline: none !important;
-    float: right;
-
-
+  .mobile-show {
+    display: block;
   }
 
-  #title{
-    float: left;
-    color:rgba(49, 89, 73, 1);
-    
+  #header {
+    display: none;
   }
-
-
-.mobile-show {
-  display: block;
-  margin-left: auto; 
-  margin-right: 0;
-}
-
-.logo-mobile{
-  width: 120px;
-  height: 120px;
-  padding: 32px;
-  grid-area: logo;
-}
-
-
-#header {
-  display: none;
-}
 
 }
 
@@ -170,7 +131,6 @@ p {
     position: sticky;
     top: 0;
     height: 100vh;
-  
   }
 
 }
