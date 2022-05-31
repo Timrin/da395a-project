@@ -21,8 +21,8 @@ function Word(props) {
   if (definition.status) {
     //If everything is ok
 
-    return <OverlayTrigger rootClose trigger="click" placement="right" overlay={
-      <Popover className="popoverWrap" placement="right" id="popover-basic" show={false}>
+    return <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={
+      <Popover className="popoverWrap" placement="bottom" id="popover-basic" show={false}>
         <Popover.Header as="h4">Defnition of {word}</Popover.Header>
         <Popover.Body>
           {definition.phonetic}
@@ -51,8 +51,8 @@ function Word(props) {
   } else {
     //Something went wrong with the definition or it's loading
 
-    return <OverlayTrigger rootClose trigger="click" placement="right" overlay={
-      <Popover className="popoverWrap" placement="right" id="popover-basic" show={false}>
+    return <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={
+      <Popover className="popoverWrap" placement="bottom" id="popover-basic" show={false}>
         <Popover.Header as="h3">Defnition of {props.currentWord}</Popover.Header>
         <Popover.Body>
           {definition.message ?? "Loading"}

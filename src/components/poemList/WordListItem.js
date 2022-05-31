@@ -9,8 +9,8 @@ export default function WordListItem(props) {
 
     return(
             <ListGroup.Item className='word-box-item'>
-                <OverlayTrigger rootClose trigger="click" placement="top" overlay={
-                    <Popover className="popoverWrap" placement="top" id="popover-basic" show={false}>
+                <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={
+                    <Popover className="popoverWrap" placement="bottom" id="popover-basic" show={false}>
                         <Popover.Header as="h4">Defnition of {props.item.word}</Popover.Header>
                         <Popover.Body>
                             {props.item.phonetic}

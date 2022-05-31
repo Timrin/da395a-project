@@ -6,6 +6,7 @@ import { writePoemToLocalStorage, writeWordToLocalStorage, deleteFromLocalStorag
 import Dropdown from 'react-bootstrap/Dropdown';
 import { getNewPoem, getWord } from "./api_util";
 import {Button} from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 function App() {
 
@@ -49,17 +50,7 @@ function App() {
         </div>
 
         <div className="mobile-show">
-        <a id="title" href="#top"><h1>Dicta</h1></a>
-          <Dropdown>
-            <Dropdown.Toggle id="dropdown-list">
-                Saved
-            </Dropdown.Toggle>
 
-            <Dropdown.Menu>
-              <Dropdown.Item href="#poemList">Saved Poems</Dropdown.Item>
-              <Dropdown.Item href="#wordList">Saved Words</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
         </div>
       
       </div>

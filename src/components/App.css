@@ -191,7 +191,7 @@ p {
     grid-area: saved;
     display: flex;
     flex-direction: row;
-    margin-right: 150px;
+    justify-content: space-around;
   }
 
   .box{
