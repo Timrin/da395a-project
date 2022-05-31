@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
 
 .mobile-show, .fab-container {
   display: none !important;
@@ -10,7 +11,11 @@
 }
 
 p {
-  font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family:'IBM Plex Sans', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family:'IBM Plex Sans', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .App {
