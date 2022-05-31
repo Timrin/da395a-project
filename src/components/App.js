@@ -45,8 +45,7 @@ function App() {
 
         <div className="menu-btn">
           <Button className="btn" onClick={() => { getNewPoem(setPoem, setIsLoaded) }}>New Poem</Button>
-          <Button className="btn" onClick={() => { savePoem(poem) }}><span class="material-icons">turned_in</span></Button>
-
+          <Button className="btn" onClick={() => { savePoem(poem) }}><span className="material-icons">turned_in</span></Button>
         </div>
 
         <div className="mobile-show">
