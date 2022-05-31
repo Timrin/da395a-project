@@ -120,6 +120,12 @@ p {
     display: none;
   }
 
+  .box{
+    margin-right: auto !important;
+    margin-left: auto;
+    width: 90%; 
+  }
+
 }
 
 /* Tablet */

@@ -6,7 +6,6 @@ import { writePoemToLocalStorage, writeWordToLocalStorage, deleteFromLocalStorag
 import Dropdown from 'react-bootstrap/Dropdown';
 import { getNewPoem, getWord } from "./api_util";
 import {Button} from 'react-bootstrap'
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 function App() {
 
