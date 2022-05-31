@@ -5,8 +5,6 @@ import PoemContainer from './PoemContainer';
 import { writePoemToLocalStorage, writeWordToLocalStorage, deleteFromLocalStorage } from "../localStorage_util";
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 function App() {
 
   //Uses state to force re-render when a new poem is added. Updates the list of saved poems from 
