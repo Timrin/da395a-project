@@ -16,8 +16,11 @@ function PoemContainer(props) {
     if (props.isLoaded) {
         return (
             <div className="PoemContainer">
-                <Button className="btn" onClick={() => { getNewPoem(props.setPoem, props.setIsLoaded) }}>New Poem</Button>
-                <Button className="btn" onClick={() => { props.savePoem(props.poem) }}><span class="material-icons">turned_in</span></Button>
+                <div className="btn-container">
+                    <Button className="btn" onClick={() => { getNewPoem(props.setPoem, props.setIsLoaded) }}>New Poem</Button>
+                    <Button className="btn" onClick={() => { props.savePoem(props.poem) }}><span class="material-icons">turned_in</span></Button>
+                </div>
+                
                 <h2 className="title">{props.poem.title}</h2>
                 <h3 className="author">by <span>{props.poem.author.toUpperCase()}</span></h3>
                 {

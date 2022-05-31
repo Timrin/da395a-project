@@ -70,6 +70,10 @@ p {
 
 /* Buttons */
 
+.btn-container{
+  display: flex;
+}
+
 .btn{
   background-color: rgba(49, 89, 73, 1);
   color: white;
@@ -82,7 +86,7 @@ p {
   line-height: 21px;
   border: none;
   /*  font-family: Georgia; */
-  margin: 10px;
+  margin-right: 10px;
 }
 
 
