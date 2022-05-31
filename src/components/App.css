@@ -38,7 +38,7 @@ p {
   text-align: left;
 }
 
-#savedLists {
+.list-container{
   grid-area: saved;
 }
 
@@ -89,6 +89,10 @@ p {
   margin-right: 10px;
 }
 
+.menu-btn{
+  display: none;
+}
+
 
 /* Mobile */
 @media screen and (max-width: 900px) {
@@ -123,18 +127,38 @@ p {
 
   .App {
     display: grid;
-    grid-template-columns: 150px 1fr;
-    grid-template-rows: 100px auto auto auto;
+    grid-template-columns: 150px 1fr 1fr;
+    grid-template-rows: 100px auto;
     grid-template-areas:
-      "menu header"
-      "menu poem"
-      "menu saved";
+      "menu header header"
+      "menu poem saved";
   }
 
   #menuBar {
     position: sticky;
     top: 0;
     height: 100vh;
+  }
+
+  .list-container{
+    height: 80vh;
+    grid-area: saved;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    position: sticky;
+    top: 5%;
+  }
+
+  .box{
+    max-height: 40vh;
+  }
+
+  .menu-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 
 }
@@ -144,7 +168,7 @@ p {
 
   .App {
     display: grid;
-    grid-template-columns: 200px 4.5fr 3fr 3.5fr;
+    grid-template-columns: 200px 4.5fr 1fr 4.5fr;
     grid-template-rows: 100px 1fr auto;
     grid-template-areas:
       "menu header header header"
@@ -156,6 +180,20 @@ p {
     position: sticky;
     top: 0;
     height: 100vh;
+  }
+
+  .list-container{
+    grid-area: saved;
+    display: flex;
+    flex-direction: row;
+    margin-right: 150px;
+  }
+
+  .box{
+    position: sticky;
+    top: 5%;
+    width: 400px;
+    max-height: 600px;
   }
 
 }

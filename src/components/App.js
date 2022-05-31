@@ -4,6 +4,8 @@ import List from './poemList/List.js';
 import PoemContainer from './PoemContainer';
 import { writePoemToLocalStorage, writeWordToLocalStorage, deleteFromLocalStorage } from "../localStorage_util";
 import Dropdown from 'react-bootstrap/Dropdown';
+import { getNewPoem, getWord } from "./api_util";
+import {Button} from 'react-bootstrap'
 
 function App() {
 
@@ -41,6 +43,12 @@ function App() {
         
         <img className="logo" src={'quill.png'} />
 
+        <div className="menu-btn">
+          <Button className="btn" onClick={() => { getNewPoem(setPoem, setIsLoaded) }}>New Poem</Button>
+          <Button className="btn" onClick={() => { savePoem(poem) }}><span class="material-icons">turned_in</span></Button>
+
+        </div>
+
         <div className="mobile-show">
         <a id="title" href="#top"><h1>Dicta</h1></a>
           <Dropdown>
@@ -59,18 +67,16 @@ function App() {
       <div id="header">
         <h1>Dicta</h1>
       </div>
-      <div id="poemList">
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <List type="poems" deletePoem={deletePoem} setPoem={setPoem} setIsLoaded={setIsLoaded} />
+
+      <div className="list-container">
+        <div id="poemList">
+          <List type="poems" deletePoem={deletePoem} setPoem={setPoem} setIsLoaded={setIsLoaded} />
+        </div>
+        <div id="wordList">
+          <List type="words" deleteWord={deleteWord} />
+        </div>
       </div>
-      <div id="wordList">
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <List type="words" deleteWord={deleteWord} />
-      </div>
+      
       <PoemContainer savePoem={savePoem} saveWord={saveWord} poem={poem} setPoem={setPoem}
        isLoaded={isLoaded} setIsLoaded={setIsLoaded}/>
     </div>
