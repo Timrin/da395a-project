@@ -3,10 +3,9 @@ import './App.css';
 import List from './poemList/List.js';
 import PoemContainer from './PoemContainer';
 import { writePoemToLocalStorage, writeWordToLocalStorage, deleteFromLocalStorage } from "../localStorage_util";
-import Dropdown from 'react-bootstrap/Dropdown';
 import { getNewPoem, getWord } from "./api_util";
 import { Button } from 'react-bootstrap';
-import './FloatingActionButton.css';
+import FloatingActionButton from "./FloatingActionButton";
 
 function App() {
 
@@ -40,28 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="fab-container mobile-show">
-        <div className="fab shadow">
-          <div className="fab-content">
-            <span className="material-icons">menu</span>
-          </div>
-        </div>
-        <div className="sub-button shadow">
-          <a href="#poemList">
-            <span className="material-icons">bookmarks</span>
-          </a>
-        </div>
-        <div className="sub-button shadow">
-          <a href="#wordList">
-            <span className="material-icons">star</span>
-          </a>
-        </div>
-        <div className="sub-button shadow">
-          <a href="#top">
-            <span className="material-icons">arrow_upward</span>
-          </a>
-        </div>
-      </div>
+      <FloatingActionButton/>
       <div className="contentContainer">
 
         <div id="menuBar">
