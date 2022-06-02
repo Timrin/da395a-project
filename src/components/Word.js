@@ -20,7 +20,7 @@ function Word(props) {
   if (definition.status) {
     //If everything is ok
 
-    return <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={
+    let popoverBody = (
       <Popover className="popoverWrap" placement="bottom" id="popover-basic" show={false}>
         <Popover.Header as="h4">Defnition of {word}</Popover.Header>
         <Popover.Body>
@@ -33,6 +33,7 @@ function Word(props) {
             for (let i = 0; i < loop; i++) {
               definitions.push(meaning.definitions[i])
             }
+
             return (
               <div key={idx}>
                 <h5>{meaning.partOfSpeech}</h5>
@@ -44,8 +45,14 @@ function Word(props) {
           })}
           <Button className="btn" variant="primary" onClick={() => { props.saveWord(definition) }}>Save Word</Button>
         </Popover.Body>
-      </Popover>}><span onClick={() => onWordClick(word)}>{word} </span>
-    </OverlayTrigger>
+      </Popover>
+    );
+
+    return (
+      <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popoverBody}>
+        <span onClick={() => onWordClick(word)}>{word} </span>
+      </OverlayTrigger>
+    );
 
   } else {
     //Something went wrong with the definition or it's loading
