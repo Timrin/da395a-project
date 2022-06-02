@@ -28,10 +28,6 @@ export function getWord(word, setDefinition){
         })
         .then(
             (result) => {
-                console.log(result)
-                //console.log("Definition " + definition)
-
-                console.log("-----------------------------------------");
 
                 //Save dictionary data that we are interested in, in a dictionary entry
                 let dictionaryEntry = {};
@@ -40,10 +36,7 @@ export function getWord(word, setDefinition){
                 dictionaryEntry.meanings = result[0].meanings;
                 dictionaryEntry.status = true;
 
-                console.log(dictionaryEntry)
                 setDefinition(dictionaryEntry);
-
-                console.log("-----------------------------------------");
 
             }, (error) => {
                 console.log(error)
