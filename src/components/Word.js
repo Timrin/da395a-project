@@ -6,7 +6,6 @@ import { getNewPoem, getWord } from "./api_util";
 function Word(props) {
   const MAX_NUMBER_OF_WORD_DEFINITIONS = 2;
   let word = props.word;
-  let index = props.index; //This is used for the key attribute; it is the index of the word in the poem.
   const [definition, setDefinition] = useState({
     status: false,
     word: "",
@@ -43,7 +42,7 @@ function Word(props) {
               </div>
             )
           })}
-          <Button class="btn" variant="primary" onClick={() => { props.saveWord(definition) }}>Save Word</Button>
+          <Button className="btn" variant="primary" onClick={() => { props.saveWord(definition) }}>Save Word</Button>
         </Popover.Body>
       </Popover>}><span onClick={() => onWordClick(word)}>{word} </span>
     </OverlayTrigger>
