@@ -48,7 +48,7 @@ export default function List(props){
         <div className='box' >
             <div className='box-header-container'>
                 <h3 className='box-header'>{getTitle(props.type)}</h3>
-                <div className='poem-logo-container'><img className={logoClassName} src={logo} /></div>
+                <div className='poem-logo-container'><img className={logoClassName} src={logo} alt="" /></div>
             </div>
             <div className='scroll'>
                 <ListGroup>

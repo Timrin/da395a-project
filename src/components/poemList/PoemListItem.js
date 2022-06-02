@@ -18,7 +18,7 @@ export default function PoemListItem(props) {
                     <span onClick={() => {
                         props.deletePoemById(props.item.id);
                     }}>
-                        <img src={logo} />
+                        <img src={logo} alt="" />
                     </span>
                 </div>   
             </ListGroup.Item>
