@@ -3,7 +3,7 @@ import './App.css';
 import List from './poemList/List.js';
 import PoemContainer from './PoemContainer';
 import { writePoemToLocalStorage, writeWordToLocalStorage, deleteFromLocalStorage } from "../localStorage_util";
-import { getNewPoem, getWord } from "./api_util";
+import { getNewPoem } from "./api_util";
 import { Button } from 'react-bootstrap';
 import FloatingActionButton from "./FloatingActionButton";
 
@@ -44,11 +44,15 @@ function App() {
 
         <div id="menuBar">
 
-          <img className="logo" src={'quill.png'} />
+          <img className="logo" src={'quill.png'} alt="Dicta logo"/>
 
           <div className="menu-btn">
-            <Button className="btn" onClick={() => { getNewPoem(setPoem, setIsLoaded) }}>New Poem</Button>
-            <Button className="btn" onClick={() => { savePoem(poem) }}><span className="material-icons">turned_in</span></Button>
+            <Button className="btn" onClick={() => { getNewPoem(setPoem, setIsLoaded) }}>
+              New Poem
+            </Button>
+            <Button className="btn" onClick={() => { savePoem(poem) }}>
+              <span className="material-icons">turned_in</span>
+            </Button>
           </div>
 
           <div className="mobile-show">

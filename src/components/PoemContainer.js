@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { OverlayTrigger, Button } from 'react-bootstrap';
-import { getNewPoem, getWord } from "./api_util";
+import { useEffect } from "react";
+import { Button } from 'react-bootstrap';
+import { getNewPoem } from "./api_util";
 import Word from "./Word"
 import "./App.css";
 

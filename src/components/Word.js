@@ -1,7 +1,7 @@
 import { OverlayTrigger, Button } from 'react-bootstrap';
 import Popover from 'react-bootstrap/Popover';
 import { useState } from "react";
-import { getNewPoem, getWord } from "./api_util";
+import { getWord } from "./api_util";
 
 function Word(props) {
   const MAX_NUMBER_OF_WORD_DEFINITIONS = 2;
