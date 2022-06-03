@@ -1,5 +1,5 @@
 # Om projektet
-Detta projekt heter Dicta och är skrivet i React och använder sig av React Bootstrap för design. Det är en responsiv webbapplikation som använder sig av två APIer, Poetrydb.org och Dictainaryapi.dev. En slumpad dikt hämtas från poetrydb.org och definitoner av ett specifikt ord hämtas från Dictainaryapi.dev.
+Detta projekt heter Dicta och är skrivet i React och använder sig av React Bootstrap för design. Det är en responsiv webbapplikation som använder sig av två APIer, Poetrydb.org och Dictionaryapi.dev. En slumpad dikt hämtas från poetrydb.org och definitoner av ett specifikt ord hämtas från Dictainaryapi.dev.
 Huvudfunktionaliteterna i projektet är:
 - Slumpa fram dikt
 - Se definitioner av ord
