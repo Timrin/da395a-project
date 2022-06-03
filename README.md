@@ -1,3 +1,24 @@
+# Om projektet
+Detta projekt heter Dicta och är skrivet i React och använder sig av React Bootstrap för design. Det är en responsiv webbapplikation som använder sig av två APIer, Poetrydb.org och Dictainaryapi.dev. En slumpad dikt hämtas från poetrydb.org och definitoner av ett specifikt ord hämtas från Dictainaryapi.dev.
+Huvudfunktionaliteterna i projektet är:
+- Slumpa fram dikt
+- Se definitioner av ord
+- Spara dikter
+- Spara ord
+
+# Jämförelse
+Vi har tidigare bekantat oss med React under kursens gång, och därmed var det en självklarhet för oss att välja React även i detta projekt. Vi i projektet hade gemensamt att vi ville utöka våra programmeringskunskaper i React. Vi ansåg även att React var ett lämpligt val eftersom vi enbart hade tre veckor på oss att utveckla webbapplikationen. Vi tyckte även att React var ett lämpligt val utifrån omfånget av projektet. React är mer populärt än Angular och Vue och har därför en bred community. Eftersom vi alla tre är nybörjare i React var det en stor betydelse i val av ramverk att det finns bra dokumentation om ramverket.
+
+React är lämpligt för mindre projekt och därför valde vi det ramverket. Vi visste från start att vår webbapplikation inte kommer att skalas upp. Hade det istället varit att vi ville skala upp vårt projekt med fler funktioner, integration mot andra system eller koppla webbapplikationen mot en server hade Angular varit mer lämplig, eftersom det är mer anpassat för större projekt. 
+
+Eftersom ingen av oss har mycket erfarenhet av Angular eller Vue, ansåg vi att det hade blivit svårt för oss att välja något av det i detta projekt som enbart pågick under tre veckors tid. Det tar ofta flera veckor innan utvecklare lär sig ett nytt ramverk som de aldrig tidigare arbetat med. Inlärningskurvan för Angular är dessutom högre än för React, eftersom Angular har fler integrerade funktioner. 
+
+Vue är ett annat ramverk som ingen av oss tidigare har arbetat med. Vue är lämpligt för mindre projekt, och hade därför varit ett lämpligt val för detta projekt. Vue är även enklare att lära sig jämfört med React och Angular. En fördel med Vue är att det är enkelt integrerat med Bootstrap som vi använde oss av i vårt projekt. Dessvärre är det svårare att felsöka och göra tester i Vue.
+
+Oavsett, hade det varit möjligt att utveckla denna webbapplikation i både React, Angular och Vue. Det gäller att välja det mest lämpliga och passande ramverk för ett projekt, baserat på tidigare kunskap, omfång och komplexitet. Utifrån det valde vi React, för vi ansåg det var det mest lämpliga i detta projekt.
+
+_______________________________________
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
