@@ -1,7 +1,6 @@
 import ListGroup from 'react-bootstrap/ListGroup'
 import { OverlayTrigger } from 'react-bootstrap';
 import Popover from 'react-bootstrap/Popover';
-import logo from './Delete-X.png'
 
 export default function WordListItem(props) {
 
@@ -42,7 +41,7 @@ export default function WordListItem(props) {
                     <span className='word-delete' onClick={() => {
                             props.deleteWordById(props.item.id);
                         }}>
-                            <img src={logo} alt="" />
+                            <img src={'delete-icon.png'} alt="Delete icon" />
                     </span>
                 </div>
             </ListGroup.Item>

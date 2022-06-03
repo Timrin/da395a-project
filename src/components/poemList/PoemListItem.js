@@ -1,10 +1,9 @@
 import ListGroup from 'react-bootstrap/ListGroup'
 import './poemList_style.css'
-import logo from './Delete-X.png'
 
 export default function PoemListItem(props) {
     return(
-            <ListGroup.Item className='poem-box-item'>
+            <ListGroup.Item className='poem-list-item'>
                 <a href="#top">
                 <span onClick={() => {
                     props.setPoemClick(props.item);
@@ -18,7 +17,7 @@ export default function PoemListItem(props) {
                     <span onClick={() => {
                         props.deletePoemById(props.item.id);
                     }}>
-                        <img src={logo} alt="" />
+                        <img src={'delete-icon.png'} alt="Delete icon" />
                     </span>
                 </div>   
             </ListGroup.Item>
