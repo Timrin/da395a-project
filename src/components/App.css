@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5 {
     display: none;
   }
 
-  .box{
+  .list-box{
     margin-right: auto !important;
     margin-left: auto;
     width: 90%; 
@@ -162,7 +162,7 @@ h1, h2, h3, h4, h5 {
     top: 5%;
   }
 
-  .box{
+  .list-box{
     max-height: 40vh;
   }
 
@@ -206,7 +206,7 @@ h1, h2, h3, h4, h5 {
     justify-content: space-around;
   }
 
-  .box{
+  .list-box{
     position: sticky;
     top: 5%;
     width: 400px;

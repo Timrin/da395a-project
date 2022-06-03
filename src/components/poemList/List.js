@@ -4,24 +4,30 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import { readFromLocalStorage } from '../../localStorage_util'
 import React from 'react'
 import WordListItem from './WordListItem'
-import poemLogo from './Poem-logo.png'
-import wordLogo from './word-star.png'
 
 export default function List(props){
 
-    let logo;
-    let logoClassName = "";
+    let icon;
+    let iconClassName;
+    let iconAlt;
 
-    function getTitle(type){
+    /* Returns correct title and icon for a poemlist and a wordlist */
+    function getListTitle(type){
         if(type === 'poems'){
+            icon = 'poem-icon.png';
+            iconClassName = 'poem-icon'
+            iconAlt = 'Poemlist icon'
             return 'Saved Poems'
         }
-        else if(type === 'words')
-        {
+        else if(type === 'words'){
+            icon = 'word-icon.png';
+            iconClassName = 'word-icon';
+            iconAlt = 'Wordlist icon'
             return 'Saved Words'
         }
     }
 
+    /* Reads the correct data from LocalStorage and renders it in the list */
     function printList(){
         if(props.type === 'poems'){
             return readFromLocalStorage(props.type).map(
@@ -35,27 +41,17 @@ export default function List(props){
         }
     }
 
-    if(props.type === 'poems'){
-        logo = poemLogo;
-        logoClassName = 'poem-logo'
-    }
-    else if(props.type === 'words'){
-        logo = wordLogo;
-        logoClassName = 'word-logo';
-    }
-
     return(
-        <div className='box' >
-            <div className='box-header-container'>
-                <h3 className='box-header'>{getTitle(props.type)}</h3>
-                <div className='poem-logo-container'><img className={logoClassName} src={logo} alt="" /></div>
+        <div className='list-box' >
+            <div className='list-box-title-container'>
+                <h3 className='list-box-title'>{getListTitle(props.type)}</h3>
+                <div className='list-icon-container'><img className={iconClassName} src={icon} alt={iconAlt} /></div>
             </div>
-            <div className='scroll'>
+            <div className='list-scroll-box'>
                 <ListGroup>
                     {printList()}
                 </ListGroup>
             </div>
-            
         </div>
     )
 };

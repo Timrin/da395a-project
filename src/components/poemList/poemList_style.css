@@ -1,4 +1,4 @@
-.box{
+.list-box{
     background-color: rgb(242, 242, 242);
     border-radius: 9px;
     margin-bottom: 20px;
@@ -9,30 +9,30 @@
     margin-right: 50px;
 }
 
-.scroll{
+.list-scroll-box{
     overflow-y: auto;
     -ms-overflow-style: none; /*IE and Edge*/
     scrollbar-width: none; /*Firefox*/
 }
 
 /*For Chrome, Safari and Opera*/
-.scroll::-webkit-scrollbar{
+.list-scroll-box::-webkit-scrollbar{
     display: none;
 
 }
 
-.box-header-container{
+.list-box-title-container{
     display: flex;
     flex-direction: row;
 }
 
-.box-header{
+.list-box-title{
     text-align: start;
     margin-left: 7px;
     width: 50%;
 }
 
-.poem-logo-container{
+.list-icon-container{
     width: 50%;
     display: flex;
     justify-content: flex-end;
@@ -40,7 +40,7 @@
     margin-right: 17px;
 }
 
-.poem-logo{
+.poem-icon{
     width: 18px;
     height: 25px;
 }
@@ -95,7 +95,7 @@
     display: flex;
 }
 
-.word-logo{
+.word-icon{
     width: 28px;
     height: 28px;
 }
