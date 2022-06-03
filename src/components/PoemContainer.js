@@ -12,11 +12,10 @@ function PoemContainer(props) {
             getNewPoem(props.setPoem, props.setIsLoaded);
     }, [])
 
-
     if (props.isLoaded) {
         return (
             <div className="PoemContainer">
-                <div className="btn-container">
+                <div className="btnContainer">
                     <Button className="btn" onClick={() => { getNewPoem(props.setPoem, props.setIsLoaded) }}>New Poem</Button>
                     <Button className="btn" onClick={() => { props.savePoem(props.poem) }}><span className="material-icons">turned_in</span></Button>
                 </div>

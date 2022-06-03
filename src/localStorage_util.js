@@ -1,3 +1,4 @@
+//A file that handles all communication with LocalStorage
 export function writePoemToLocalStorage(inPoem){
     const poems = readFromLocalStorage('poems');
 
@@ -39,8 +40,6 @@ export function writeWordToLocalStorage(inWord){
     else{
         alert("You already saved this word!")
     }
-
-    
 }
 
 export function readFromLocalStorage(type){
