@@ -26,24 +26,21 @@ h1, h2, h3, h4, h5 {
   grid-area: poem;
   padding: 20px;
   justify-self: flex-start;
-
   text-align: left;
 }
 
 #menuBar {
   grid-area: menu;
-
   background-color: #B8D9CC;
 }
 
 #header {
   grid-area: header;
   padding: 20px;
-
   text-align: left;
 }
 
-.list-container{
+.listContainer{
   grid-area: saved;
 }
 
@@ -75,7 +72,7 @@ h1, h2, h3, h4, h5 {
 
 /* Buttons */
 
-.btn-container{
+.btnContainer{
   display: flex;
 }
 
@@ -90,14 +87,13 @@ h1, h2, h3, h4, h5 {
   font-size: 16px;
   line-height: 21px;
   border: none;
-  /*  font-family: Georgia; */
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .menu-btn{
   display: none;
 }
-
 
 /* Mobile */
 @media screen and (max-width: 900px) {
@@ -156,7 +152,7 @@ h1, h2, h3, h4, h5 {
     height: 100vh;
   }
 
-  .list-container{
+  .listContainer{
     height: 80vh;
     grid-area: saved;
     display: flex;
@@ -174,7 +170,7 @@ h1, h2, h3, h4, h5 {
     display: block;
   }
 
-  .btn-container{
+  .btnContainer{
     display: none;
   }
 
@@ -203,7 +199,7 @@ h1, h2, h3, h4, h5 {
     height: 100vh;
   }
 
-  .list-container{
+  .listContainer{
     grid-area: saved;
     display: flex;
     flex-direction: row;

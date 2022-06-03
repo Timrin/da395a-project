@@ -1,4 +1,7 @@
- export function getNewPoem(setPoem, setIsLoaded){
+//A file that handles all communication with both APIs
+
+//Sending a request to poetrydb that returns a random poem
+export function getNewPoem(setPoem, setIsLoaded){
     fetch("https://poetrydb.org/random")
         .then(res => res.json())
         .then(
@@ -13,6 +16,7 @@
         )   
 }
 
+//Sending a request to dictionaryapi that returns definitions about a specific word
 export function getWord(word, setDefinition){
     fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + word)
         .then(res => {

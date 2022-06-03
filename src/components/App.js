@@ -16,7 +16,7 @@ function App() {
   const [poem, setPoem] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
 
-  //Writes the poem to LOcalStorage and forces a re-render by updating the state
+  //Writes the poem to LocalStorage and forces a re-render by updating the state
   function savePoem(poem) {
     writePoemToLocalStorage(poem);
     setValue(poem);
@@ -41,11 +41,8 @@ function App() {
     <div className="App">
       <FloatingActionButton/>
       <div className="contentContainer">
-
         <div id="menuBar">
-
           <img className="logo" src={'quill.png'} alt="Dicta logo"/>
-
           <div className="menu-btn">
             <Button className="btn" onClick={() => { getNewPoem(setPoem, setIsLoaded) }}>
               New Poem
@@ -54,17 +51,14 @@ function App() {
               <span className="material-icons">turned_in</span>
             </Button>
           </div>
-
           <div className="mobile-show">
             <h1>Dicta</h1>
           </div>
-
         </div>
         <div id="header">
           <h1>Dicta</h1>
         </div>
-
-        <div className="list-container">
+        <div className="listContainer">
           <div id="poemList">
             <List type="poems" deletePoem={deletePoem} setPoem={setPoem} setIsLoaded={setIsLoaded} />
           </div>
@@ -72,7 +66,6 @@ function App() {
             <List type="words" deleteWord={deleteWord} />
           </div>
         </div>
-
         <PoemContainer savePoem={savePoem} saveWord={saveWord} poem={poem} setPoem={setPoem}
           isLoaded={isLoaded} setIsLoaded={setIsLoaded} />
       </div>
