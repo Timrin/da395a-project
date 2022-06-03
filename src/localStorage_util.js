@@ -1,4 +1,5 @@
-//A file that handles all communication with LocalStorage
+//Handles all reading and writing to and from LocalStorage
+
 export function writePoemToLocalStorage(inPoem){
     const poems = readFromLocalStorage('poems');
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './App.css';
 import List from './poemList/List.js';
 import PoemContainer from './PoemContainer';
-import { writePoemToLocalStorage, writeWordToLocalStorage, deleteFromLocalStorage } from "../localStorage_util";
+import { writePoemToLocalStorage, writeWordToLocalStorage, deleteFromLocalStorage } from "../LocalStorage_util";
 import { getNewPoem } from "./api_util";
 import { Button } from 'react-bootstrap';
 import FloatingActionButton from "./FloatingActionButton";

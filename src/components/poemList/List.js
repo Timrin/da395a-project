@@ -1,7 +1,7 @@
 import './poemList_style.css'
 import PoemListItem from './PoemListItem'
 import ListGroup from 'react-bootstrap/ListGroup'
-import { readFromLocalStorage } from '../../localStorage_util'
+import { readFromLocalStorage } from '../../LocalStorage_util'
 import React from 'react'
 import WordListItem from './WordListItem'
 
