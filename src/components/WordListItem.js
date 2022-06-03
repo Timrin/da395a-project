@@ -1,6 +1,7 @@
 import ListGroup from 'react-bootstrap/ListGroup'
 import { OverlayTrigger } from 'react-bootstrap';
 import Popover from 'react-bootstrap/Popover';
+import './PoemList_style.css'
 
 export default function WordListItem(props) {
 
