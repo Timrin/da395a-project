@@ -4,10 +4,13 @@ import Popover from 'react-bootstrap/Popover';
 
 export default function WordListItem(props) {
 
+    //For limiting the definitions shown when a word has more then 2
     const MAX_NUMBER_OF_WORD_DEFINITIONS = 2;
 
     return(
-            <ListGroup.Item className='word-box-item'>
+            <ListGroup.Item className='word-list-item'>
+                {/* Popover that shows word definition when a word is clicked in 
+                    the wordlist */}
                 <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={
                     <Popover className="popoverWrap" placement="bottom" id="popover-basic" show={false}>
                         <Popover.Header as="h4">Defnition of {props.item.word}</Popover.Header>
@@ -31,9 +34,9 @@ export default function WordListItem(props) {
                             })}
                         </Popover.Body>
                     </Popover>}>
-                    <div className='word-header-container'>
-                        <p className='word'><strong>{props.item.word}</strong></p> 
-                        <p className='phonetic'> [{props.item.phonetic}] </p>
+                    <div className='word-title-container'>
+                        <p className='word-word'><strong>{props.item.word}</strong></p> 
+                        <p className='word-phonetic'> [{props.item.phonetic}] </p>
                     </div>
                 </OverlayTrigger>
                 
